@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   # Root URL to photos index, required for devise
    root "photos#index"
 
+  # Routes for users
+  # READ
+  get "/users", :controller => "users", :action => "index"
+  #------------------------------
+  
   # Routes for the Comment resource:
   # CREATE
   get "/comments/new", :controller => "comments", :action => "new"
