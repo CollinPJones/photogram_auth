@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-
+  #Validations
   #Validates User ID is present
   validates :user_id, presence: true
 
@@ -9,4 +9,11 @@ class Comment < ActiveRecord::Base
   #Validates Body is present
   validates :body, presence: true
 
+
+  #Associations
+  #A comment belongs to a photo
+  belongs_to :photo
+
+  #A comment belongs to a user
+  belongs_to :user
 end
