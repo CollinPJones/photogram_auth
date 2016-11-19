@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="jumbotron">
+        <h3><%= @user.username %></h3>
+      </div>
+    </div>
+  </div>
+  <% @user.photos.each do |photo| %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-tile">
+            <!-- Shows Photo -->
+            <a href="/users/<%= photo.user_id %>"><%= photo.user.username %></a>
+            <small>
+              <!-- Displays amount of time since photo was created in text -->
+              <%= time_ago_in_words(photo.created_at.to_time) %></small>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" class="img-responsive" /></a>
+            <p>
+
+            </p>
+            <!--  Insert Form for likes here-->
+            <p>
+
+            </p>
+            <ul class="media-list">
+              <!-- Photo's Caption -->
+              <li class="media">
+                <div class="media-body">
+                  <h6 class="media-heading">
+                    <a href="/users/<%= photo.user_id %>"><%= photo.user.username %></a>
+                    <small>
+                      <%= time_ago_in_words(photo.created_at.to_time) %>
+                    </small>
+                  </h6>
+                  <h6>
+                    <%= photo.caption %>
+                  </h6>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end %>
+  </div>
